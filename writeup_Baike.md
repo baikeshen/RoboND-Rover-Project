@@ -22,11 +22,11 @@
 
 [//]: # (Image References)
 
-[image1]: ./misc/fig1.jpg
-[image2]: ./misc/fig2.jpg
-[image3]: ./misc/fig3.jpg
-[image4]: ./misc/fig4.jpg
-[image5]: ./misc/fig2.jpg
+[image1]: ./misc/fig1.png
+[image2]: ./misc/fig2.png
+[image3]: ./misc/fig3.png
+[image4]: ./misc/fig4.png
+[image5]: ./misc/fig2.png
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/916/view) Points
 ### Here I will consider the rubric points individually and describe how I addressed each point in my implementation.  
