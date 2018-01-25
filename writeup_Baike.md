@@ -26,7 +26,7 @@
 [image2]: ./misc/fig2.png
 [image3]: ./misc/fig3.png
 [image4]: ./misc/fig4.png
-[image5]: ./misc/fig2.png
+[image5]: ./misc/fig5.png
 [image6]: ./misc/test_mapping_v1.mp4
 
 
@@ -103,7 +103,11 @@ def perspect_transform(img, src, dst):
 
 ![alt text][image3]
 
+Next Image
+
 ![alt text][image4]
+
+Next Image
 
 ![alt text][image5]
 
@@ -468,6 +472,6 @@ To improve the covered arae can be done by providing a more sophisicated decisio
 
 
 
-![alt text][image3]
+![alt text][image6]
 
 
