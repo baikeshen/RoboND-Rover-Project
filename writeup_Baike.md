@@ -40,6 +40,8 @@
 
 You're reading it!
 
+---
+
 ### Notebook Analysis
 #### 1. Obstacle and rock sample identification.
 
@@ -47,9 +49,9 @@ Color thresholding Function:
 
 Obstacle and rock sample identification was done by using the function of color_thresh_range. Color thresholding means that color values, which falll within a given range, are given a desired color. In my case, three threshold ranges have been used, one for the navigable terrain, another one for obstacle, and the last one for rock sample. 
 
-'''
 
-def color_thresh(img, rgb_thresh=(160, 160, 160, 110, 110, 50)):
+
+    def color_thresh(img, rgb_thresh=(160, 160, 160, 110, 110, 50)):
     # Create an array of zeros same xy size as img, but single channel
     # color_select = np.zeros_like(img[:,:,0])
     color_select_path = np.zeros_like(img[:,:,0])
@@ -87,19 +89,19 @@ def color_thresh(img, rgb_thresh=(160, 160, 160, 110, 110, 50)):
 
 ![alt text][image2]
 
-
+---
 **Perspective Transform
 
 With knowing what pixels in an image belong to either navigiable path, rock samples, or obstacles, it is required to find out where each pixel is located in relation to the Rover. The code used for warping can be found as follows: 
 
-'''
-def perspect_transform(img, src, dst):
+
+    def perspect_transform(img, src, dst):
            
     M = cv2.getPerspectiveTransform(src, dst)
     warped = cv2.warpPerspective(img, M, (img.shape[1], img.shape[0]))# keep same size as input image
     mask = cv2.warpPerspective(np.ones_like(img[:,:,0]), M, (img.shape[1], img.shape[0]))
     return warped, outView
-'''
+
 
 ![alt text][image3]
 
@@ -111,14 +113,16 @@ Next Image
 
 ![alt text][image5]
 
+---
+
 #### 1. Populate the `process_image()` function with the appropriate analysis steps to map pixels identifying navigable terrain, obstacles and rock samples into a worldmap.  Run `process_image()` on your test data using the `moviepy` functions provided to create video output of your result. 
 
 ![alt text][image6]
 
 Due to some technical issues, the model of moviepy can not be installed on my computer. Although the code section of process_image has been written, there is no result available to be attached. The code is shown as below:
 
-'''
-def process_image(img):
+
+    def process_image(img):
     #Example of how to use the Databucket() object defined above
     #to print the current x, y and yaw values 
     #print(data.xpos[data.count], data.ypos[data.count], data.yaw[data.count])
@@ -192,7 +196,7 @@ def process_image(img):
     
     return output_image
     
-'''
+---
 
 ### Autonomous Navigation and Mapping
 
@@ -202,7 +206,7 @@ def process_image(img):
 
 some extra variables have been added for storing rock sample angles and distances:
 
-'''
+
     def __init__(self):
         self.start_time = None # To record the start time of navigation
         self.total_time = None # To record total duration of naviagation
@@ -218,14 +222,14 @@ some extra variables have been added for storing rock sample angles and distance
         #end of self defined variable
         
 
-'''
+---
 
 **perception.py modification:**
 
 Three thresholds have been used for navigiable path, rock examples, and obstabccles. In order to recognize the yellow pixels from the rock examples, red and green thresholds shall be higher than 110 but the blue thershold shall be lower than 50:
 
-'''
-def color_thresh(img, rgb_thresh=(160, 160, 160, 110, 110, 50)):
+
+    def color_thresh(img, rgb_thresh=(160, 160, 160, 110, 110, 50)):
     #Create an array of zeros same xy size as img, but single channel
     #color_select = np.zeros_like(img[:,:,0])
     color_select_path = np.zeros_like(img[:,:,0])
@@ -249,12 +253,12 @@ def color_thresh(img, rgb_thresh=(160, 160, 160, 110, 110, 50)):
     obs_thresh = (img[:,:,0] < rgb_thresh[0]) \
                 & (img[:,:,1] < rgb_thresh[1]) \
                 & (img[:,:,2] < rgb_thresh[2])	
-'''
+
 
 The perspective_transform function is slightly modified to produce a second output(mask):
 
-'''
-def perspect_transform(img, src, dst):
+
+    def perspect_transform(img, src, dst):
            
     M = cv2.getPerspectiveTransform(src, dst)
     warped = cv2.warpPerspective(img, M, (img.shape[1], img.shape[0]))# keep same size as input image
@@ -262,13 +266,13 @@ def perspect_transform(img, src, dst):
     
     return warped, mask
 
-'''
+---
 
 The major modifications have been implemmented in the perception_step() function. This function provides a complete computer vision which tells the navigaible path, steering direction, and the location of rock samples. Furthermore, two new variables (Rover.dists and Rover.angles) are provided to guide the Rover where the rock samples are for the purpose of steering.
 
-'''
-#Apply the above functions in succession and update the Rover state accordingly
-def perception_step(Rover):
+
+    #Apply the above functions in succession and update the Rover state accordingly
+    def perception_step(Rover):
     #Perform perception steps to update Rover()
     #TODO: 
     #NOTE: camera image is coming to you in Rover.img
@@ -341,17 +345,17 @@ def perception_step(Rover):
     
 	return Rover
 
-'''
+---
 
 **decision.py modification**
 
 Some extra capabilities of locating and steering towards rock samples have been provided by using two new variables defined in the drive_rover.py. When Rover finds the rock samples, it stops when close to rock sample, and then pickups the samples.
 
-'''
-import numpy as np
+
+    import numpy as np
 
 
-def decision_step(Rover):
+    def decision_step(Rover):
 
     # Implement conditionals to decide what to do given perception data
     # Here you're all set up with some basic functionality but you'll need to
@@ -453,7 +457,7 @@ def decision_step(Rover):
     
     return Rover
 
-'''
+---
 
 
 
