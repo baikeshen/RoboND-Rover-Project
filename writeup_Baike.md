@@ -90,7 +90,7 @@ Obstacle and rock sample identification was done by using the function of color_
 ![alt text][image2]
 
 ---
-**Perspective Transform
+**Perspective Transform**
 
 With knowing what pixels in an image belong to either navigiable path, rock samples, or obstacles, it is required to find out where each pixel is located in relation to the Rover. The code used for warping can be found as follows: 
 
@@ -119,7 +119,7 @@ Next Image
 
 ![alt text][image6]
 
-Due to some technical issues, the model of moviepy can not be installed on my computer. Although the code section of process_image has been written, there is no result available to be attached. The code is shown as below:
+Due to some technical issues, the model of moviepy can not be installed on my computer until the last minutes. Although the code section of process_image has been written, there is no result available to be attached. The code is shown as below:
 
 
     def process_image(img):
@@ -466,7 +466,7 @@ Some extra capabilities of locating and steering towards rock samples have been 
 
  Results of Autonomous mapping
 
-Running the Rover in autonomous mode at 800X600 resolution, has resulted in map coverage that exceeding 55% and fidelity values exceeding 70%.
+Running the Rover in autonomous mode at 800X600 resolution, has resulted in map coverage that exceeding 55% and fidelity values exceeding 65%.
 
 
 Potential improvements
