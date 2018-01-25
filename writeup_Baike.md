@@ -27,6 +27,8 @@
 [image3]: ./misc/fig3.png
 [image4]: ./misc/fig4.png
 [image5]: ./misc/fig2.png
+[image6]: ./misc/test_mapping_v1.mp4
+
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/916/view) Points
 ### Here I will consider the rubric points individually and describe how I addressed each point in my implementation.  
@@ -83,7 +85,7 @@ def color_thresh(img, rgb_thresh=(160, 160, 160, 110, 110, 50)):
 
 '''
 
-![alt text][image1]
+![alt text][image2]
 
 
 **Perspective Transform
@@ -99,9 +101,15 @@ def perspect_transform(img, src, dst):
     return warped, outView
 '''
 
-![alt text][image2]
+![alt text][image3]
+
+![alt text][image4]
+
+![alt text][image5]
 
 #### 1. Populate the `process_image()` function with the appropriate analysis steps to map pixels identifying navigable terrain, obstacles and rock samples into a worldmap.  Run `process_image()` on your test data using the `moviepy` functions provided to create video output of your result. 
+
+![alt text][image6]
 
 Due to some technical issues, the model of moviepy can not be installed on my computer. Although the code section of process_image has been written, there is no result available to be attached. The code is shown as below:
 
